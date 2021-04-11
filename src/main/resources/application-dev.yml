@@ -11,10 +11,14 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres?useUnicode=true&characterEncoding=utf-8
-    username: postgres
-    password: 0113
+    username: ENC(gZHLO9p3PnHjRi6xPSH1XYCzC7oFK24Y8AfTjq9N3lJTw5k0zUrMOwGFU/RysDMP)
+    password: ENC(2WddIuD//Ol3Ch2M/QSkOY0CZPX7DHC/vsx3++43aqf2YejiVJdKUz3TLm9OtSZC)
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
+
+jasypt:
+  encryptor:
+    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7
