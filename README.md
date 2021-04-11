@@ -1,2 +1,2 @@
 # stock
-stock project for every day get info
+stock project get info every day
