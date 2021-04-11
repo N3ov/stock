@@ -2,7 +2,6 @@ package com.project.stock.controller;
 
 import com.project.stock.entity.DailyStockInfoEntity;
 import com.project.stock.service.DailyStockInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ public class DailyStockInfoController {
 
     private final RestTemplate restTemplate;
 
-    final DailyStockInfoService dailyStockInfoService;
+    private final DailyStockInfoService dailyStockInfoService;
 
     public DailyStockInfoController(DailyStockInfoService dailyStockInfoService, RestTemplate restTemplate) {
         this.dailyStockInfoService = dailyStockInfoService;
