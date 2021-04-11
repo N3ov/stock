@@ -15,14 +15,14 @@ public class DailyStockInfoEntity implements Serializable {
 
     private String stockName;
 
-    private int stockShares;
-    private float stockAmount;
-    private float openingPrice;
-    private float highestPrice;
-    private float lowestPrice;
-    private float closingPrice;
-    private float priceDifference;
-    private int numberOfTransactions;
+    private String stockShares;
+    private String stockAmount;
+    private String openingPrice;
+    private String highestPrice;
+    private String lowestPrice;
+    private String closingPrice;
+    private String priceDifference;
+    private String numberOfTransactions;
 
     public Integer getId() {
         return id;
@@ -48,84 +48,67 @@ public class DailyStockInfoEntity implements Serializable {
         this.stockName = stockName;
     }
 
-    public int getStockShares() {
+    public String getStockShares() {
         return stockShares;
     }
 
-    public void setStockShares(int stockShares) {
+    public void setStockShares(String stockShares) {
         this.stockShares = stockShares;
     }
 
-    public float getStockAmount() {
+    public String getStockAmount() {
         return stockAmount;
     }
 
-    public void setStockAmount(float stockAmount) {
+    public void setStockAmount(String stockAmount) {
         this.stockAmount = stockAmount;
     }
 
-    public float getOpeningPrice() {
+    public String getOpeningPrice() {
         return openingPrice;
     }
 
-    public void setOpeningPrice(float openingPrice) {
+    public void setOpeningPrice(String openingPrice) {
         this.openingPrice = openingPrice;
     }
 
-    public float getHighestPrice() {
+    public String getHighestPrice() {
         return highestPrice;
     }
 
-    public void setHighestPrice(float highestPrice) {
+    public void setHighestPrice(String highestPrice) {
         this.highestPrice = highestPrice;
     }
 
-    public float getLowestPrice() {
+    public String getLowestPrice() {
         return lowestPrice;
     }
 
-    public void setLowestPrice(float lowestPrice) {
+    public void setLowestPrice(String lowestPrice) {
         this.lowestPrice = lowestPrice;
     }
 
-    public float getClosingPrice() {
+    public String getClosingPrice() {
         return closingPrice;
     }
 
-    public void setClosingPrice(float closingPrice) {
+    public void setClosingPrice(String closingPrice) {
         this.closingPrice = closingPrice;
     }
 
-    public float getPriceDifference() {
+    public String getPriceDifference() {
         return priceDifference;
     }
 
-    public void setPriceDifference(float priceDifference) {
+    public void setPriceDifference(String priceDifference) {
         this.priceDifference = priceDifference;
     }
 
-    public int getNumberOfTransactions() {
+    public String getNumberOfTransactions() {
         return numberOfTransactions;
     }
 
-    public void setNumberOfTransactions(int numberOfTransactions) {
+    public void setNumberOfTransactions(String numberOfTransactions) {
         this.numberOfTransactions = numberOfTransactions;
-    }
-
-    @Override
-    public String toString() {
-        return "DailyStockInfoEntity{" +
-                "id=" + id +
-                ", stockNumber='" + stockNumber + '\'' +
-                ", stockName='" + stockName + '\'' +
-                ", stockShares=" + stockShares +
-                ", stockAmount=" + stockAmount +
-                ", openingPrice=" + openingPrice +
-                ", highestPrice=" + highestPrice +
-                ", lowestPrice=" + lowestPrice +
-                ", closingPrice=" + closingPrice +
-                ", priceDifference=" + priceDifference +
-                ", numberOfTransactions=" + numberOfTransactions +
-                '}';
     }
 }

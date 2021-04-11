@@ -2,39 +2,41 @@ package com.project.stock.controller;
 
 import com.project.stock.entity.DailyStockInfoEntity;
 import com.project.stock.service.DailyStockInfoService;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
 @RequestMapping("/stock")
 public class DailyStockInfoController {
 
-    private final RestTemplate restTemplate;
 
     private final DailyStockInfoService dailyStockInfoService;
 
-    public DailyStockInfoController(DailyStockInfoService dailyStockInfoService, RestTemplate restTemplate) {
+    public DailyStockInfoController(DailyStockInfoService dailyStockInfoService) {
         this.dailyStockInfoService = dailyStockInfoService;
-        this.restTemplate = restTemplate;
     }
 
     @GetMapping("/allInfo")
-    public List<DailyStockInfoEntity> getAllInfo() {
+    public List<DailyStockInfoEntity> getAllInfo() throws Exception {
         return dailyStockInfoService.getAllInfo();
     }
 
-    @GetMapping("/twse")
-    public Object getJson() {
+    @GetMapping(value = "/twse")
+    public JSONObject getJson() throws Exception {
         String url = "https://www.twse.com.tw/exchangeReport/STOCK_DAY_ALL?response=json";
-        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-        return results.getBody();
+        return dailyStockInfoService.twseStock(url);
+    }
+
+    @GetMapping(value = "/info/{stockNumber}")
+    public Optional<DailyStockInfoEntity> findByStockNumber(@PathVariable String stockNumber) throws Exception {
+        return dailyStockInfoService.findByStockNumber(stockNumber);
     }
 }
