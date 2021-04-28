@@ -14,7 +14,5 @@ public interface DailyStockInfoService {
 
     JSONObject twseStock(String url) throws JSONException;
 
-    void saveDataToEntity(JSONArray dataList, int i) throws JSONException;
-
     Optional<DailyStockInfoEntity> findByStockNumber(String number);
 }

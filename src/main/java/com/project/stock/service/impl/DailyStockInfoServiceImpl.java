@@ -19,16 +19,17 @@ public class DailyStockInfoServiceImpl implements DailyStockInfoService {
 
     private final RestTemplate restTemplate;
 
-
     public DailyStockInfoServiceImpl(DailyStockInfoRepository dailyStockInfoRepository, RestTemplate restTemplate) {
         this.dailyStockInfoRepository = dailyStockInfoRepository;
         this.restTemplate = restTemplate;
     }
 
+    @Override
     public List<DailyStockInfoEntity> getAllInfo() {
         return dailyStockInfoRepository.findAll();
     }
 
+    @Override
     public JSONObject twseStock(String url) throws JSONException {
         String result = restTemplate.getForEntity(url, String.class).getBody();
 
@@ -42,7 +43,12 @@ public class DailyStockInfoServiceImpl implements DailyStockInfoService {
         return json;
     }
 
-    public void saveDataToEntity(JSONArray dataList, int i) throws JSONException {
+    @Override
+    public Optional<DailyStockInfoEntity> findByStockNumber(String number) {
+        return dailyStockInfoRepository.findByStockNumber(number);
+    }
+
+    private void saveDataToEntity(JSONArray dataList, int i) throws JSONException {
         JSONArray obj = dataList.getJSONArray(i);
         DailyStockInfoEntity data = new DailyStockInfoEntity();
         data.setStockNumber((String) obj.get(0));
@@ -58,7 +64,5 @@ public class DailyStockInfoServiceImpl implements DailyStockInfoService {
         dailyStockInfoRepository.save(data);
     }
 
-    public Optional<DailyStockInfoEntity> findByStockNumber(String number) {
-        return dailyStockInfoRepository.findByStockNumber(number);
-    }
+
 }
