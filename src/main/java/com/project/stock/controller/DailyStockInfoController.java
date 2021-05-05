@@ -25,7 +25,7 @@ public class DailyStockInfoController {
     }
 
     @GetMapping("/allInfo")
-    public List<DailyStockInfoEntity> getAllInfo() throws Exception {
+    public List<DailyStockInfoEntity> getAllInfo(){
         return dailyStockInfoService.getAllInfo();
     }
 
@@ -36,7 +36,7 @@ public class DailyStockInfoController {
     }
 
     @GetMapping(value = "/info/{stockNumber}")
-    public Optional<DailyStockInfoEntity> findByStockNumber(@PathVariable String stockNumber) throws Exception {
+    public Optional<DailyStockInfoEntity> findByStockNumber(@PathVariable String stockNumber){
         return dailyStockInfoService.findByStockNumber(stockNumber);
     }
 }
